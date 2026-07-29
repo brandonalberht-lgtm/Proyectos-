@@ -44,11 +44,11 @@ const capitulos = [
 
                 texto: `
 
-                Todo inicia con algo tan confunso como fue el incio de la Universidad
+                "Todo inicia con algo tan confunso como fue el incio de la Universidad
                 te vi y me gustaste como siempre timido nunca dije nada luego como sabemos
                 las sircustancias nunca nos ayudaron, aunque siempre me sentia feliz con solo verte 
                 luego nos empezamos a ver en algunos cursos y me gustaba hablar contigo , jugabamos lol
-                nos gustaba el anime 
+                nos gustaba el anime "
             },
 
             {

@@ -23,28 +23,59 @@ const textoDer = document.getElementById("textoDer");
 const libro = [
 
 {
-titulo:"Prólogo",
-texto:"Hay historias que comienzan sin que uno lo note. La nuestra fue una de ellas."
+titulo:"Nuestros sentimientos",
+
+texto:`Aquí quiero escribir cómo comenzaron mis sentimientos por ti.
+
+¿Qué fue lo primero que llamó mi atención?
+
+¿Cuándo me di cuenta de que ya no eras una persona cualquiera?
+
+¿Qué pequeños detalles hicieron que poco a poco ocuparas un lugar tan importante en mi vida?
+
+Este es el capítulo donde quiero abrir completamente mi corazón.
+
+━━━━━━━━━━━━━━━━━━━━━━
+
+✍️ Escribe aquí todo lo que quieras contarle.`
 },
 
 {
-titulo:"El primer mensaje",
-texto:"Jamás imaginé que aquella conversación terminaría convirtiéndose en una parte tan importante de mi vida."
-},
+titulo:"Nuestras primeras salidas",
 
-{
-titulo:"Nuestro primer recuerdo",
-texto:"Aquí escribirás ese recuerdo que siempre te hace sonreír."
-},
+texto:`Aquí quiero recordar nuestras primeras salidas.
 
-{
-titulo:"Una promesa",
-texto:"Prometí acompañarte en cada capítulo que venga, en los días fáciles y también en los difíciles."
+¿Cómo me sentía antes de verte?
+
+¿Qué lugares visitamos?
+
+¿Qué momentos todavía recuerdo con una sonrisa?
+
+¿Qué fue lo que hizo que esos días fueran tan especiales?
+
+━━━━━━━━━━━━━━━━━━━━━━
+
+✍️ Escribe aquí todos los recuerdos que quieras revivir con ella.`
 },
 
 {
 titulo:"Carta",
-texto:"Gracias por cada risa, cada abrazo y cada momento que hemos compartido. Espero seguir escribiendo esta historia contigo durante muchos años más. Feliz aniversario ❤️"
+
+texto:`Aquí escribiré una carta completamente desde el corazón.
+
+Le agradeceré por todo lo que hemos vivido.
+
+Le diré cuánto la amo.
+
+Le contaré lo feliz que soy por compartir esta historia con ella.
+
+Y terminaré deseándole un muy feliz aniversario.
+
+━━━━━━━━━━━━━━━━━━━━━━
+
+✍️ Escribe aquí tu carta.
+
+(No olvides firmarla al final ❤️)`
 }
 
 ];
@@ -135,15 +166,11 @@ portada.addEventListener("click", abrirLibro);
 
 /*==================================*/
 
-// Click sobre las páginas
-
 paginaDer.addEventListener("click", siguiente);
 
 paginaIzq.addEventListener("click", anterior);
 
 /*==================================*/
-
-// Flechas del teclado
 
 document.addEventListener("keydown", function(e){
 

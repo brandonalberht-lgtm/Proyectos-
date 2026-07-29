@@ -43,25 +43,25 @@ const capitulos = [
                 subtitulo: "Cómo empezó todo",
 
                 texto: `
+Todo comenzó de una manera tan confusa como lo fue el inicio de la universidad.
 
-                Todo inicia con algo tan confunso como fue el incio de la Universidad
-                te vi y me gustaste como siempre timido nunca dije nada luego como sabemos
-                las sircustancias nunca nos ayudaron, aunque siempre me sentia feliz con solo verte 
-                luego nos empezamos a ver en algunos cursos y me gustaba hablar contigo , jugabamos lol
-                nos gustaba el anime 
+Te vi y me gustaste, pero, como siempre he sido tímido, nunca dije nada. Luego, como ambos sabemos, las circunstancias nunca nos ayudaron, aunque yo siempre me sentía feliz con tan solo verte.
 
-                    `
-                  
-
+Después empezamos a coincidir en algunos cursos y me gustaba mucho hablar contigo. Jugábamos LoL, hablábamos de anime y, poco a poco, comenzamos a conocernos mejor.
+                `
             },
 
             {
                 subtitulo: "Nuestro primer abrazo",
 
                 texto: `
-Aquí continúa el capítulo.
+Recuerdo que tú me pediste un abrazo y yo estaba tan feliz de poder abrazarte.
 
-Cada página representa un recuerdo.
+Ahora lo hago mucho más seguido y sé que ya te acostumbraste a ellos. Antes sentía que eso era lo único que podríamos hacer, pero míranos ahora: abrazándonos, dándonos besos y compartiendo tantos momentos juntos.
+
+Tú, que eras la persona que más odiaba el contacto físico, ahora me dejas besarte y abrazarte. Es muy lindo saber que conmigo tienes esa confianza.
+
+Me alegra muchísimo todo lo que hemos avanzado durante estos pocos meses.
                 `
             }
 
@@ -77,21 +77,57 @@ Cada página representa un recuerdo.
                 subtitulo: "La primera salida",
 
                 texto: `
-Aquí escribirás todo sobre la primera salida.
+Sé que tú dices que todas las salidas que tuvimos fueron citas, incluso cuando salíamos con nuestros amigos.
+
+Sin embargo, la que yo considero como nuestra primera cita fue cuando fuimos a ver gatos. Ese día nos dimos regalos y, aunque las pulseras ya no estén en nuestras muñecas, todavía recuerdo ese momento con mucho cariño.
+
+También recuerdo cuando me tomaste de la mano. Luego, cuando subimos al taxi, yo estaba muy meloso y tú simplemente me dejaste serlo.
+
+Siempre me gustaste. No sé cómo nunca pude darme cuenta de todo lo que sentía por ti.
                 `
             },
 
-            {
-                subtitulo: "Lo que más recuerdo",
+          {
+    subtitulo: "Lo que más recuerdo",
 
-                texto: `
-Aquí continúa la historia.
-                `
-            }
+    texto: `
+Siempre recordaré a Mimi y al gatito viejito que te dije que podríamos adoptar juntos. Sí, ese que solamente estaba ahí, tranquilo.
 
+También recuerdo mucho a Mimi por lo hiperactiva que era y porque terminó arañándonos. Aun así, fue muy lindo pasar tanto tiempo contigo.
+
+Ahora ya no quiero separarme de ti, así como Mimi no quería separarse de sus premios.
+      `
+        }  
         ]
     },
 
+    {
+        titulo: "Carta",
+
+        paginas: [
+
+            {
+    subtitulo: "Para ti",
+
+    texto: `
+Sé que no soy la persona más creativa y que, como siempre quiero hacer las cosas bien, muchas veces termino equivocándome. Sin embargo, tú siempre estás ahí para animarme.
+
+Pensé en hacer este libro porque siempre decimos que queremos leer, aunque al final casi nunca lo hagamos. Sé que puede parecer algo sencillo, pero en serio lo estoy haciendo con todo el amor que siento por ti.
+
+Este libro quedará abierto para que podamos escribir muchos más capítulos juntos. Lo iremos llenando poco a poco, con cada recuerdo, cada salida y cada momento que compartamos, hasta el día de nuestra boda. Ya lo sabes: estás obligada.
+
+EN SERIO TE AMO Y SIEMPRE VOY A ESTAR PARA TI.
+
+Sé que a veces es difícil aprender a amarnos a nosotros mismos, y espero poder mejorar también en eso. Pero recuerda que, mientras yo exista, siempre habrá alguien que te ame.
+
+No importa lo que suceda, siempre te amaré.
+    `
+}
+
+        ]
+    }
+
+];
     {
         titulo: "Carta",
 

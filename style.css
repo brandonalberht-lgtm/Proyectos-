@@ -30,10 +30,10 @@ body{
     font-family:"Cormorant Garamond",serif;
 
     background:
-    radial-gradient(circle at center,
-    #647b42 0%,
-    #495a30 45%,
-    #28301c 100%);
+    radial-gradient(circle,
+    #4b3020 0%,
+    #28170f 70%,
+    #120b08 100%);
 
 }
 
@@ -47,6 +47,7 @@ body{
     height:100vh;
 
     display:flex;
+
     justify-content:center;
     align-items:center;
 
@@ -62,24 +63,21 @@ body{
     height:720px;
 
     display:flex;
+
     justify-content:center;
     align-items:center;
 
-    border-radius:25px;
-
     background:
-
     linear-gradient(
-    135deg,
-    #556b2f,
-    #6f8744,
-    #556b2f);
+    90deg,
+    #5d3b25,
+    #74492d,
+    #5d3b25);
+
+    border-radius:20px;
 
     box-shadow:
-
-    inset 0 0 25px rgba(255,255,255,.08),
-
-    0 20px 60px rgba(0,0,0,.35);
+    0 25px 70px rgba(0,0,0,.45);
 
 }
 
@@ -96,41 +94,16 @@ body{
 
     overflow:hidden;
 
-    cursor:pointer;
+    border-radius:12px;
 
-    border-radius:14px;
-
-    transition:.55s;
+    transition:.45s;
 
     background:
-
     linear-gradient(
     135deg,
-    #39491f,
-    #5d7540,
-    #31401b);
-
-    box-shadow:
-
-    0 25px 70px rgba(0,0,0,.45);
-
-}
-
-/* Marco dorado */
-
-#libro::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:14px;
-
-    border:2px solid rgba(236,220,145,.55);
-
-    border-radius:10px;
-
-    pointer-events:none;
+    #41281a,
+    #68422b,
+    #41281a);
 
 }
 
@@ -152,9 +125,11 @@ body{
 
     text-align:center;
 
-    color:#f7f3db;
+    color:#f3e7ca;
 
     padding:45px;
+
+    cursor:pointer;
 
 }
 
@@ -164,63 +139,41 @@ body{
 
     font-size:48px;
 
-    letter-spacing:4px;
+    color:#e9cf91;
 
-    color:#fff2be;
-
-    text-shadow:
-
-    0 2px 3px rgba(0,0,0,.35);
+    letter-spacing:3px;
 
 }
 
-#portada h2{
+#portada h3{
 
-    margin-top:20px;
-
-    font-size:30px;
-
-    font-weight:500;
+    margin-top:25px;
 
     letter-spacing:5px;
 
-    color:#dce7b4;
+    color:#cfb27a;
 
 }
 
-.subtitulo{
+#portada p{
 
-    margin-top:95px;
+    margin-top:100px;
 
-    font-size:25px;
+    font-size:27px;
 
     line-height:42px;
 
     font-style:italic;
 
-    color:#f1f4da;
-
 }
 
 #abrirTexto{
 
-    margin-top:95px;
+    margin-top:90px;
+
+    opacity:.8;
 
     font-size:18px;
-
-    letter-spacing:3px;
-
-    opacity:.85;
-
-    transition:.3s;
-
-}
-
-#portada:hover #abrirTexto{
-
-    opacity:1;
-
-    transform:translateY(-4px);
 
 }
 
@@ -244,33 +197,32 @@ body{
 }
 
 /* =====================================
-            PÁGINAS
+              PÁGINAS
 ===================================== */
 
 .pagina{
+
+    position:relative;
 
     width:50%;
 
     height:100%;
 
-    padding:45px;
+    padding:38px;
+
+    background:#efe2c4;
 
     display:flex;
 
     flex-direction:column;
 
-    background:
-
-    linear-gradient(
-    180deg,
-    #fbf4e4,
-    #f2e7cd);
+    overflow:hidden;
 
 }
 
-.pagina:first-child{
+.izquierda{
 
-    border-right:2px solid rgba(0,0,0,.10);
+    border-right:2px solid rgba(0,0,0,.12);
 
 }
 
@@ -278,206 +230,113 @@ body{
 
     font-family:"Cinzel",serif;
 
-    font-size:30px;
+    color:#4c2e19;
 
-    margin-bottom:25px;
+    font-size:28px;
 
-    color:#425423;
+    margin-bottom:22px;
+
+    flex-shrink:0;
 
 }
 
-.pagina p{
+/* =====================================
+            CONTENIDO
+===================================== */
+
+.contenido{
+
+    flex:1;
 
     font-size:22px;
 
-    line-height:37px;
+    line-height:1.8;
 
-    color:#343521;
+    color:#352117;
 
-    white-space:pre-line;
+    white-space:pre-wrap;
 
-}
+    word-break:break-word;
 
-
-/* =====================================
-            EFECTOS
-===================================== */
-
-#libro:hover{
-
-    transform:
-    translateY(-6px)
-    rotate(-1deg);
-
-    box-shadow:
-
-    0 35px 90px rgba(0,0,0,.55);
-
-}
-
-#portada{
-
-    transition:.45s;
-
-}
-
-#portada:hover{
-
-    background:
-
-    linear-gradient(
-    135deg,
-    #42542a,
-    #698345,
-    #374522);
-
-}
-
-.pagina{
-
-    transition:.35s;
-
-}
-
-.pagina:hover{
-
-    background:
-
-    linear-gradient(
-    180deg,
-    #fff9eb,
-    #f6ecd6);
+    overflow:hidden;
 
 }
 
 /* =====================================
-            BARRA CENTRAL
+        NÚMERO DE PÁGINA
 ===================================== */
 
-#interior::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-
-    top:0;
-
-    transform:translateX(-50%);
-
-    width:10px;
-
-    height:100%;
-
-    background:
-
-    linear-gradient(
-    90deg,
-    rgba(0,0,0,.25),
-    rgba(255,255,255,.08),
-    rgba(0,0,0,.25));
-
-}
-
-/* =====================================
-            BOTONES
-===================================== */
-
-#botones{
+.numeroPagina{
 
     position:absolute;
 
     bottom:18px;
 
-    right:22px;
+    left:0;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:18px;
+
+    color:#7d6246;
+
+    font-family:"Cinzel",serif;
+
+}
+
+/* =====================================
+        PÁGINA DE MEDICIÓN
+===================================== */
+
+#medidor{
+
+    position:absolute;
+
+    left:-99999px;
+
+    top:-99999px;
+
+    width:50%;
+
+    height:590px;
+
+    padding:38px;
+
+    visibility:hidden;
 
     display:flex;
 
-    gap:12px;
+    flex-direction:column;
+
+    background:#efe2c4;
 
 }
 
-#botones button{
+#medidor h2{
 
-    width:52px;
+    font-family:"Cinzel",serif;
 
-    height:52px;
+    font-size:28px;
 
-    border:none;
+    margin-bottom:22px;
 
-    border-radius:50%;
+}
 
-    cursor:pointer;
+#textoMedidor{
 
-    background:
-
-    linear-gradient(
-    135deg,
-    #556b2f,
-    #7b9545);
-
-    color:white;
+    flex:1;
 
     font-size:22px;
 
-    transition:.25s;
+    line-height:1.8;
 
-}
+    white-space:pre-wrap;
 
-#botones button:hover{
+    word-break:break-word;
 
-    transform:scale(1.12);
-
-    background:
-
-    linear-gradient(
-    135deg,
-    #70893d,
-    #94af55);
-
-}
-
-/* =====================================
-            SCROLL (POR SI LA CARTA
-            ES MUY LARGA)
-===================================== */
-
-.pagina{
-
-    overflow-y:auto;
-
-}
-
-.pagina::-webkit-scrollbar{
-
-    width:6px;
-
-}
-
-.pagina::-webkit-scrollbar-thumb{
-
-    background:#7b9545;
-
-    border-radius:20px;
-
-}
-
-.pagina::-webkit-scrollbar-track{
-
-    background:transparent;
-
-}
-
-/* =====================================
-            SELECCIÓN
-===================================== */
-
-::selection{
-
-    background:#95aa62;
-
-    color:white;
+    overflow:hidden;
 
 }
 
@@ -485,7 +344,7 @@ body{
             RESPONSIVE
 ===================================== */
 
-@media(max-width:1000px){
+@media(max-width:900px){
 
 #mesa{
 
@@ -498,48 +357,37 @@ body{
 
 #libro{
 
-    width:96vw;
-    height:94vh;
+    width:100% !important;
+
+    height:100%;
+
+    border-radius:0;
 
 }
 
 .pagina{
 
-    padding:28px;
+    padding:22px;
 
 }
 
 .pagina h2{
 
-    font-size:26px;
-
-}
-
-.pagina p{
-
     font-size:20px;
 
-    line-height:34px;
+}
+
+.contenido{
+
+    font-size:17px;
+
+    line-height:1.6;
 
 }
 
-#portada h1{
+.numeroPagina{
 
-    font-size:38px;
-
-}
-
-#portada h2{
-
-    font-size:26px;
-
-}
-
-.subtitulo{
-
-    font-size:22px;
-
-    line-height:36px;
+    font-size:14px;
 
 }
 

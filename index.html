@@ -10,8 +10,7 @@
 
     <title>Nuestra Historia</title>
 
-    <link rel="stylesheet"
-          href="style.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -31,44 +30,72 @@
 
                 <h1>Nuestra Historia</h1>
 
-                <h2>Volumen I</h2>
+                <h3>Volumen I</h3>
 
-                <p class="subtitulo">
+                <p>
 
-                    El primer libro
-                    de una historia
-                    que espero nunca termine.
+                    Porque algunas historias
+                    nunca terminan.
 
                 </p>
 
                 <span id="abrirTexto">
 
-                    Abrir nuestra historia
+                    Haz clic para comenzar
 
                 </span>
 
             </div>
 
             <!-- ==========================
-                    INTERIOR
+                  INTERIOR DEL LIBRO
             =========================== -->
 
             <div id="interior" class="oculto">
 
-                <div class="pagina izquierda" onclick="anterior()">
+                <div class="pagina izquierda">
+
+                    <div class="numeroPagina"
+                         id="numeroIzq">
+                        1
+                    </div>
 
                     <h2 id="tituloIzq"></h2>
 
-                    <p id="textoIzq"></p>
+                    <div class="contenido"
+                         id="textoIzq">
+                    </div>
 
                 </div>
 
-                <div class="pagina derecha" onclick="siguiente()">
+                <div class="pagina derecha">
+
+                    <div class="numeroPagina"
+                         id="numeroDer">
+                        2
+                    </div>
 
                     <h2 id="tituloDer"></h2>
 
-                    <p id="textoDer"></p>
+                    <div class="contenido"
+                         id="textoDer">
+                    </div>
 
+                </div>
+
+            </div>
+
+            <!-- ==========================
+                 PÁGINA INVISIBLE
+                 (solo para medir texto)
+            =========================== -->
+
+            <div id="medidor">
+
+                <h2 id="tituloMedidor"></h2>
+
+                <div id="textoMedidor"
+                     class="contenido">
                 </div>
 
             </div>

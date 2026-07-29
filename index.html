@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Nuestra Historia</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+<body>
+
+<div id="escena">
+
+    <div id="mesa">
+
+        <div id="libro">
+
+            <!-- ==========================
+                    PORTADA
+            =========================== -->
+
+            <div id="portada">
+
+                <h1>Nuestra Historia</h1>
+
+                <h3>Volumen I</h3>
+
+                <p>
+
+                    Porque algunas historias
+                    nunca terminan.
+
+                </p>
+
+                <span id="abrirTexto">
+                    Haz clic para comenzar
+                </span>
+
+            </div>
+
+            <!-- ==========================
+                    INTERIOR
+            =========================== -->
+
+            <div id="interior" class="oculto">
+
+               <div class="pagina izquierda" onclick="anterior()">
+
+    <h2 id="tituloIzq"></h2>
+
+    <p id="textoIzq"></p>
+
+</div>
+
+<div class="pagina derecha" onclick="siguiente()">
+
+    <h2 id="tituloDer"></h2>
+
+    <p id="textoDer"></p>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,282 +1,195 @@
 /*======================================================
-                NUESTRA HISTORIA
-             Motor del Libro v3.0
+                ABRIR EL LIBRO
 ======================================================*/
 
-/*=================== ELEMENTOS ===================*/
+function abrirLibro(){
 
-const portada = document.getElementById("portada");
-const libro = document.getElementById("libro");
-const interior = document.getElementById("interior");
+    if(libroAbierto) return;
 
-const tituloIzq = document.getElementById("tituloIzq");
-const tituloDer = document.getElementById("tituloDer");
+    libroAbierto=true;
 
-const textoIzq = document.getElementById("textoIzq");
-const textoDer = document.getElementById("textoDer");
+    paginaActual=0;
 
-const numeroIzq = document.getElementById("numeroIzq");
-const numeroDer = document.getElementById("numeroDer");
+    portada.style.display="none";
 
-/*=================== CONTENIDO ===================*/
+    libro.style.width="1100px";
 
-const capitulos = [
+    interior.classList.remove("oculto");
+    interior.style.display="flex";
 
-{
-    titulo:"Nuestros sentimientos",
-
-    paginas:[
-
-        {
-
-            subtitulo:"Cómo empezó todo",
-
-            texto:`
-
-Aquí escribirás la primera parte de este capítulo.
-
-No importa cuánto escribas.
-
-Cuando quieras continuar solamente agregas otra página.
-
-`
-
-        },
-
-        {
-
-            subtitulo:"Lo primero que llamó mi atención",
-
-            texto:`
-
-Aquí continúa el capítulo.
-
-Cada página representa un recuerdo.
-
-`
-
-        }
-
-    ]
-
-},
-
-{
-
-    titulo:"Nuestras primeras salidas",
-
-    paginas:[
-
-        {
-
-            subtitulo:"La primera salida",
-
-            texto:`
-
-Aquí escribirás todo sobre la primera salida.
-
-`
-
-        },
-
-        {
-
-            subtitulo:"Lo que más recuerdo",
-
-            texto:`
-
-Aquí continúa la historia.
-
-`
-
-        }
-
-    ]
-
-},
-
-{
-
-    titulo:"Carta",
-
-    paginas:[
-
-        {
-
-            subtitulo:"Para ti",
-
-            texto:`
-
-Aquí escribirás toda la carta.
-
-Puedes agregar tantas páginas como quieras.
-
-`
-
-        }
-
-    ]
+    mostrarLibro();
 
 }
 
-];
-
-/*=================== VARIABLES ===================*/
-
-let libroCompleto=[];
-
-let paginaActual=0;
 
 /*======================================================
-            CONSTRUIR EL LIBRO
+        NAVEGACIÓN HACIENDO CLIC EN LAS PÁGINAS
 ======================================================*/
 
-function construirLibro(){
+const paginaIzquierda = document.querySelector(".pagina.izquierda");
+const paginaDerecha = document.querySelector(".pagina.derecha");
 
-    libroCompleto=[];
+paginaIzquierda.addEventListener("click",(e)=>{
 
-    capitulos.forEach((capitulo,indiceCapitulo)=>{
+    if(e.target.closest(".textoPagina")) return;
 
-        capitulo.paginas.forEach((pagina,indicePagina)=>{
+    anterior();
 
-            libroCompleto.push({
+});
 
-                capitulo:indiceCapitulo+1,
+paginaDerecha.addEventListener("click",(e)=>{
 
-                titulo:capitulo.titulo,
+    if(e.target.closest(".textoPagina")) return;
 
-                subtitulo:pagina.subtitulo,
+    siguiente();
 
-                texto:pagina.texto.trim()
-
-            });
-
-        });
-
-    });
-
-}
+});
 
 /*======================================================
-            OBTENER PÁGINA
+            NAVEGACIÓN TÁCTIL
 ======================================================*/
 
-function obtenerPagina(indice){
+let inicioToqueX = 0;
+let inicioToqueY = 0;
 
-    if(indice<0) return null;
+interior.addEventListener("touchstart",(e)=>{
 
-    if(indice>=libroCompleto.length) return null;
+    const toque = e.changedTouches[0];
 
-    return libroCompleto[indice];
+    inicioToqueX = toque.clientX;
+    inicioToqueY = toque.clientY;
 
-}
+},{ passive:true });
 
-/*======================================================
-            LIMPIAR PÁGINA
-======================================================*/
+interior.addEventListener("touchend",(e)=>{
 
-function limpiarPaginas(){
+    const toque = e.changedTouches[0];
 
-    tituloIzq.innerHTML="";
-    tituloDer.innerHTML="";
+    const desplazamientoX = toque.clientX - inicioToqueX;
+    const desplazamientoY = toque.clientY - inicioToqueY;
 
-    textoIzq.innerHTML="";
-    textoDer.innerHTML="";
+    const distanciaMinima = 60;
 
-    numeroIzq.innerHTML="";
-    numeroDer.innerHTML="";
+    /*
+    Evita cambiar de página cuando el usuario
+    solamente está desplazando verticalmente el texto.
+    */
 
-}
+    if(
+        Math.abs(desplazamientoX) <=
+        Math.abs(desplazamientoY)
+    ){
 
-/*======================================================
-            FORMATO DEL TÍTULO
-======================================================*/
-
-function crearTitulo(pagina){
-
-    return `
-
-<div class="capituloTitulo">
-
-CAPÍTULO ${pagina.capitulo}
-
-</div>
-
-<div class="tituloPrincipal">
-
-${pagina.titulo}
-
-</div>
-
-<div class="subtituloPagina">
-
-${pagina.subtitulo}
-
-</div>
-
-`;
-
-}
-/*======================================================
-                MOSTRAR EL LIBRO
-======================================================*/
-
-function mostrarLibro(){
-
-    limpiarPaginas();
-
-    const izquierda = obtenerPagina(paginaActual);
-    const derecha   = obtenerPagina(paginaActual + 1);
-
-    /*================ IZQUIERDA ================*/
-
-    if(izquierda){
-
-        tituloIzq.innerHTML = crearTitulo(izquierda);
-
-        textoIzq.innerHTML = izquierda.texto
-            .replace(/\n/g,"<br>");
-
-        numeroIzq.textContent = paginaActual + 1;
+        return;
 
     }
 
-    /*================ DERECHA ================*/
+    if(Math.abs(desplazamientoX) < distanciaMinima){
 
-    if(derecha){
-
-        tituloDer.innerHTML = crearTitulo(derecha);
-
-        textoDer.innerHTML = derecha.texto
-            .replace(/\n/g,"<br>");
-
-        numeroDer.textContent = paginaActual + 2;
+        return;
 
     }
 
-}
+    /*
+    Deslizar hacia la izquierda:
+    avanzar.
+    */
+
+    if(desplazamientoX < 0){
+
+        siguiente();
+
+    }
+
+    /*
+    Deslizar hacia la derecha:
+    retroceder.
+    */
+
+    else{
+
+        anterior();
+
+    }
+
+},{ passive:true });
 /*======================================================
-                EVENTOS
+          NAVEGACIÓN CON RUEDA DEL MOUSE
 ======================================================*/
 
-// Abrir el libro
-portada.addEventListener("click", abrirLibro);
+let ruedaBloqueada = false;
 
-// Botones (si existen)
-const btnSiguiente = document.getElementById("btnSiguiente");
-const btnAnterior = document.getElementById("btnAnterior");
+interior.addEventListener("wheel",(e)=>{
 
-if(btnSiguiente){
+    if(!libroAbierto) return;
 
-    btnSiguiente.addEventListener("click", siguiente);
+    const zonaTexto = e.target.closest(".textoPagina");
 
-}
+    /*
+    Si el cursor está sobre el texto, primero permite
+    desplazarse dentro de la página.
+    */
 
-if(btnAnterior){
+    if(zonaTexto){
 
-    btnAnterior.addEventListener("click", anterior);
+        const estaArriba = zonaTexto.scrollTop <= 0;
 
-}
+        const estaAbajo =
+            Math.ceil(
+                zonaTexto.scrollTop +
+                zonaTexto.clientHeight
+            ) >= zonaTexto.scrollHeight;
+
+        /*
+        Mientras todavía haya texto por desplazar,
+        no cambia de página.
+        */
+
+        if(e.deltaY > 0 && !estaAbajo){
+
+            return;
+
+        }
+
+        if(e.deltaY < 0 && !estaArriba){
+
+            return;
+
+        }
+
+    }
+
+    e.preventDefault();
+
+    if(ruedaBloqueada) return;
+
+    ruedaBloqueada = true;
+
+    if(e.deltaY > 0){
+
+        siguiente();
+
+    }
+
+    else if(e.deltaY < 0){
+
+        anterior();
+
+    }
+
+    /*
+    Evita avanzar varias páginas con
+    un único movimiento de la rueda.
+    */
+
+    setTimeout(()=>{
+
+        ruedaBloqueada = false;
+
+    },500);
+
+},{ passive:false });
+
 
 /*======================================================
             NAVEGACIÓN CON TECLADO
@@ -284,16 +197,47 @@ if(btnAnterior){
 
 document.addEventListener("keydown",(e)=>{
 
+    if(e.key === "Escape"){
+
+        cerrarLibro();
+        return;
+
+    }
+
+    if(!libroAbierto) return;
+
     switch(e.key){
 
         case "ArrowRight":
 
+            e.preventDefault();
+
             siguiente();
+
             break;
 
         case "ArrowLeft":
 
+            e.preventDefault();
+
             anterior();
+
+            break;
+
+        case "Home":
+
+            e.preventDefault();
+
+            irAlInicio();
+
+            break;
+
+        case "End":
+
+            e.preventDefault();
+
+            irAlFinal();
+
             break;
 
     }
@@ -301,41 +245,195 @@ document.addEventListener("keydown",(e)=>{
 });
 
 /*======================================================
-                INICIALIZACIÓN
+                ANIMAR CAMBIO
 ======================================================*/
 
-window.addEventListener("load",()=>{
+function animarCambio(direccion,accion){
 
-    construirLibro();
+    if(interior.dataset.animando === "true") return;
 
-});
+    interior.dataset.animando = "true";
 
-/*======================================================
-            UTILIDADES
-======================================================*/
+    const desplazamiento =
+        direccion === "siguiente" ? -35 : 35;
 
-function irAlInicio(){
+    interior.animate(
 
-    paginaActual = 0;
+        [
+            {
+                opacity:1,
+                transform:"translateX(0)"
+            },
 
-    mostrarLibro();
+            {
+                opacity:0,
+                transform:`translateX(${desplazamiento}px)`
+            }
+        ],
+
+        {
+            duration:180,
+            easing:"ease-in",
+            fill:"forwards"
+        }
+
+    ).onfinish=()=>{
+
+        accion();
+
+        interior.animate(
+
+            [
+                {
+                    opacity:0,
+                    transform:`translateX(${-desplazamiento}px)`
+                },
+
+                {
+                    opacity:1,
+                    transform:"translateX(0)"
+                }
+            ],
+
+            {
+                duration:220,
+                easing:"ease-out",
+                fill:"forwards"
+            }
+
+        ).onfinish=()=>{
+
+            interior.style.opacity="";
+            interior.style.transform="";
+
+            interior.dataset.animando="false";
+
+        };
+
+    };
 
 }
 
-function irAlFinal(){
+/*======================================================
+                PÁGINA SIGUIENTE
+======================================================*/
 
-    if(libroCompleto.length % 2 == 0){
+function siguiente(){
 
-        paginaActual = libroCompleto.length-2;
+    if(!libroAbierto) return;
+
+    if(paginaActual + 2 >= libroCompleto.length) return;
+
+    animarCambio("siguiente",()=>{
+
+        paginaActual += 2;
+
+        mostrarLibro();
+
+    });
+
+}
+
+/*======================================================
+                PÁGINA ANTERIOR
+======================================================*/
+
+function anterior(){
+
+    if(!libroAbierto) return;
+
+    if(paginaActual - 2 < 0) return;
+
+    animarCambio("anterior",()=>{
+
+        paginaActual -= 2;
+
+        mostrarLibro();
+
+    });
+
+}
+
+/*======================================================
+          ESTADO DE LA NAVEGACIÓN
+======================================================*/
+
+function estaEnInicio(){
+
+    return paginaActual === 0;
+
+}
+
+function estaEnFinal(){
+
+    return paginaActual + 2 >= libroCompleto.length;
+
+}
+
+function actualizarEstadoNavegacion(){
+
+    /*
+    Página izquierda:
+    solo permite retroceder si no estamos al inicio.
+    */
+
+    if(estaEnInicio()){
+
+        paginaIzquierda.style.cursor = "default";
+        paginaIzquierda.style.opacity = "0.96";
 
     }
 
     else{
 
-        paginaActual = libroCompleto.length-1;
+        paginaIzquierda.style.cursor = "pointer";
+        paginaIzquierda.style.opacity = "1";
 
     }
 
-    mostrarLibro();
+    /*
+    Página derecha:
+    solo permite avanzar si quedan páginas.
+    */
+
+    if(estaEnFinal()){
+
+        paginaDerecha.style.cursor = "default";
+        paginaDerecha.style.opacity = "0.96";
+
+    }
+
+    else{
+
+        paginaDerecha.style.cursor = "pointer";
+        paginaDerecha.style.opacity = "1";
+
+    }
+
+}
+
+/*======================================================
+                CERRAR EL LIBRO
+======================================================*/
+
+function cerrarLibro(){
+
+    if(!libroAbierto) return;
+
+    if(interior.dataset.animando === "true") return;
+
+    libroAbierto = false;
+    paginaActual = 0;
+
+    limpiarPaginas();
+
+    interior.classList.add("oculto");
+    interior.style.display = "none";
+
+    portada.style.display = "flex";
+
+    libro.style.width = "520px";
+
+    interior.dataset.animando = "false";
 
 }

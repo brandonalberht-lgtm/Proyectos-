@@ -5,97 +5,134 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Un libro digital sobre nuestra historia."
+    >
 
     <title>Nuestra Historia</title>
 
-    <link rel="stylesheet" href="style(5).css">
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
 
 </head>
 
 <body>
-    
-<div id="escena">
 
-    <div id="mesa">
+    <div id="escena">
 
-        <div id="libro">
+        <div id="mesa">
 
-            <!-- ==========================
-                    PORTADA
-            =========================== -->
+            <main id="libro">
 
-            <div id="portada">
+                <!-- ==================================
+                            PORTADA
+                =================================== -->
 
-                <h1>Nuestra Historia</h1>
+                <section id="portada">
 
-                <h3>Volumen I</h3>
+                    <h1>
+                        Nuestra Historia
+                    </h1>
 
-                <p>
+                    <h3>
+                        Volumen I
+                    </h3>
 
-                    Porque algunas historias
-                    nunca terminan.
+                    <p>
+                        Porque algunas historias
+                        nunca terminan.
+                    </p>
 
-                </p>
+                    <span id="abrirTexto">
+                        Toca o haz clic para comenzar
+                    </span>
 
-                <span id="abrirTexto">
+                </section>
 
-                    Haz clic para comenzar
 
-                </span>
+                <!-- ==================================
+                       INTERIOR DEL LIBRO
+                =================================== -->
 
-            </div>
+                <section
+                    id="interior"
+                    class="oculto"
+                >
 
-            <!-- ==========================
-                    INTERIOR
-            =========================== -->
+                    <!-- Página izquierda -->
 
-            <div id="interior" class="oculto">
+                    <article class="pagina izquierda">
 
-                <div class="pagina izquierda">
+                        <h2 id="tituloIzq"></h2>
 
-                    <div class="contenidoPagina">
+                        <div
+                            id="textoIzq"
+                            class="contenido"
+                        ></div>
 
-                        <div id="tituloIzq"
-                             class="tituloPagina"></div>
+                        <div
+                            id="numeroIzq"
+                            class="numeroPagina"
+                        ></div>
 
-                        <div id="textoIzq"
-                             class="textoPagina"></div>
+                    </article>
 
-                    </div>
 
-                    <div id="numeroIzq"
-                         class="numeroPagina"></div>
+                    <!-- Página derecha -->
+
+                    <article class="pagina derecha">
+
+                        <h2 id="tituloDer"></h2>
+
+                        <div
+                            id="textoDer"
+                            class="contenido"
+                        ></div>
+
+                        <div
+                            id="numeroDer"
+                            class="numeroPagina"
+                        ></div>
+
+                    </article>
+
+                </section>
+
+
+                <!-- ==================================
+                    ELEMENTO INVISIBLE PARA MEDICIÓN
+                =================================== -->
+
+                <div
+                    id="medidor"
+                    aria-hidden="true"
+                >
+
+                    <h2 id="tituloMedidor"></h2>
+
+                    <div
+                        id="textoMedidor"
+                        class="contenido"
+                    ></div>
 
                 </div>
 
-                <div class="pagina derecha">
-
-                    <div class="contenidoPagina">
-
-                        <div id="tituloDer"
-                             class="tituloPagina"></div>
-
-                        <div id="textoDer"
-                             class="textoPagina"></div>
-
-                    </div>
-
-                    <div id="numeroDer"
-                         class="numeroPagina"></div>
-
-                </div>
-
-            </div>
+            </main>
 
         </div>
 
     </div>
 
-</div>
 
-<script src="script(4).js"></script>
+    <script src="./script.js"></script>
 
 </body>
 

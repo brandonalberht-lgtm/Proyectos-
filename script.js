@@ -43,16 +43,16 @@ const capitulos = [
                 subtitulo: "Cómo empezó todo",
 
                 texto: `
-Aquí escribirás la primera parte de este capítulo.
 
-No importa cuánto escribas.
-
-Cuando quieras continuar solamente agregas otra página.
-                `
+                Todo inicia con algo tan confunso como fue el incio de la Universidad
+                te vi y me gustaste como siempre timido nunca dije nada luego como sabemos
+                las sircustancias nunca nos ayudaron, aunque siempre me sentia feliz con solo verte 
+                luego nos empezamos a ver en algunos cursos y me gustaba hablar contigo , jugabamos lol
+                nos gustaba el anime 
             },
 
             {
-                subtitulo: "Lo primero que llamó mi atención",
+                subtitulo: "Nuestro primer abrazo",
 
                 texto: `
 Aquí continúa el capítulo.

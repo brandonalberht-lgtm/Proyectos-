@@ -1,7 +1,9 @@
 /*======================================================
                 NUESTRA HISTORIA
-                Motor del Libro
+             Motor del Libro v3.0
 ======================================================*/
+
+/*=================== ELEMENTOS ===================*/
 
 const portada = document.getElementById("portada");
 const libro = document.getElementById("libro");
@@ -16,87 +18,324 @@ const textoDer = document.getElementById("textoDer");
 const numeroIzq = document.getElementById("numeroIzq");
 const numeroDer = document.getElementById("numeroDer");
 
-/*======================================================
-                    CONTENIDO
-======================================================*/
+/*=================== CONTENIDO ===================*/
 
 const capitulos = [
 
 {
+    titulo:"Nuestros sentimientos",
 
-titulo:"Nuestros sentimientos",
+    paginas:[
 
-texto:`
+        {
 
-Aquí escribirás TODO este capítulo.
+            subtitulo:"Cómo empezó todo",
 
-No importa si ocupa media página.
+            texto:`
 
-No importa si ocupa diez páginas.
+Aquí escribirás la primera parte de este capítulo.
 
-El programa lo dividirá automáticamente.
+No importa cuánto escribas.
 
-Puedes escribir normalmente.
-
-Puedes dejar párrafos.
-
-Puedes escribir durante horas.
+Cuando quieras continuar solamente agregas otra página.
 
 `
+
+        },
+
+        {
+
+            subtitulo:"Lo primero que llamó mi atención",
+
+            texto:`
+
+Aquí continúa el capítulo.
+
+Cada página representa un recuerdo.
+
+`
+
+        }
+
+    ]
 
 },
 
 {
 
-titulo:"Nuestras primeras salidas",
+    titulo:"Nuestras primeras salidas",
 
-texto:`
+    paginas:[
 
-Aquí escribirás todo el segundo capítulo.
+        {
 
-Todo seguido.
+            subtitulo:"La primera salida",
 
-Sin preocuparte por el tamaño.
+            texto:`
+
+Aquí escribirás todo sobre la primera salida.
 
 `
+
+        },
+
+        {
+
+            subtitulo:"Lo que más recuerdo",
+
+            texto:`
+
+Aquí continúa la historia.
+
+`
+
+        }
+
+    ]
 
 },
 
 {
 
-titulo:"Carta",
+    titulo:"Carta",
 
-texto:`
+    paginas:[
+
+        {
+
+            subtitulo:"Para ti",
+
+            texto:`
 
 Aquí escribirás toda la carta.
 
-Toda.
-
-No volverás a dividir páginas manualmente.
+Puedes agregar tantas páginas como quieras.
 
 `
+
+        }
+
+    ]
 
 }
 
 ];
 
-/*======================================================
-                VARIABLES
-======================================================*/
+/*=================== VARIABLES ===================*/
 
-let libroPaginas=[];
+let libroCompleto=[];
 
 let paginaActual=0;
 
-/*
-Cada elemento tendrá:
+/*======================================================
+            CONSTRUIR EL LIBRO
+======================================================*/
 
-{
+function construirLibro(){
 
-titulo:"",
+    libroCompleto=[];
 
-texto:""
+    capitulos.forEach((capitulo,indiceCapitulo)=>{
+
+        capitulo.paginas.forEach((pagina,indicePagina)=>{
+
+            libroCompleto.push({
+
+                capitulo:indiceCapitulo+1,
+
+                titulo:capitulo.titulo,
+
+                subtitulo:pagina.subtitulo,
+
+                texto:pagina.texto.trim()
+
+            });
+
+        });
+
+    });
 
 }
 
-*/
+/*======================================================
+            OBTENER PÁGINA
+======================================================*/
+
+function obtenerPagina(indice){
+
+    if(indice<0) return null;
+
+    if(indice>=libroCompleto.length) return null;
+
+    return libroCompleto[indice];
+
+}
+
+/*======================================================
+            LIMPIAR PÁGINA
+======================================================*/
+
+function limpiarPaginas(){
+
+    tituloIzq.innerHTML="";
+    tituloDer.innerHTML="";
+
+    textoIzq.innerHTML="";
+    textoDer.innerHTML="";
+
+    numeroIzq.innerHTML="";
+    numeroDer.innerHTML="";
+
+}
+
+/*======================================================
+            FORMATO DEL TÍTULO
+======================================================*/
+
+function crearTitulo(pagina){
+
+    return `
+
+<div class="capituloTitulo">
+
+CAPÍTULO ${pagina.capitulo}
+
+</div>
+
+<div class="tituloPrincipal">
+
+${pagina.titulo}
+
+</div>
+
+<div class="subtituloPagina">
+
+${pagina.subtitulo}
+
+</div>
+
+`;
+
+}
+/*======================================================
+                MOSTRAR EL LIBRO
+======================================================*/
+
+function mostrarLibro(){
+
+    limpiarPaginas();
+
+    const izquierda = obtenerPagina(paginaActual);
+    const derecha   = obtenerPagina(paginaActual + 1);
+
+    /*================ IZQUIERDA ================*/
+
+    if(izquierda){
+
+        tituloIzq.innerHTML = crearTitulo(izquierda);
+
+        textoIzq.innerHTML = izquierda.texto
+            .replace(/\n/g,"<br>");
+
+        numeroIzq.textContent = paginaActual + 1;
+
+    }
+
+    /*================ DERECHA ================*/
+
+    if(derecha){
+
+        tituloDer.innerHTML = crearTitulo(derecha);
+
+        textoDer.innerHTML = derecha.texto
+            .replace(/\n/g,"<br>");
+
+        numeroDer.textContent = paginaActual + 2;
+
+    }
+
+}
+/*======================================================
+                EVENTOS
+======================================================*/
+
+// Abrir el libro
+portada.addEventListener("click", abrirLibro);
+
+// Botones (si existen)
+const btnSiguiente = document.getElementById("btnSiguiente");
+const btnAnterior = document.getElementById("btnAnterior");
+
+if(btnSiguiente){
+
+    btnSiguiente.addEventListener("click", siguiente);
+
+}
+
+if(btnAnterior){
+
+    btnAnterior.addEventListener("click", anterior);
+
+}
+
+/*======================================================
+            NAVEGACIÓN CON TECLADO
+======================================================*/
+
+document.addEventListener("keydown",(e)=>{
+
+    switch(e.key){
+
+        case "ArrowRight":
+
+            siguiente();
+            break;
+
+        case "ArrowLeft":
+
+            anterior();
+            break;
+
+    }
+
+});
+
+/*======================================================
+                INICIALIZACIÓN
+======================================================*/
+
+window.addEventListener("load",()=>{
+
+    construirLibro();
+
+});
+
+/*======================================================
+            UTILIDADES
+======================================================*/
+
+function irAlInicio(){
+
+    paginaActual = 0;
+
+    mostrarLibro();
+
+}
+
+function irAlFinal(){
+
+    if(libroCompleto.length % 2 == 0){
+
+        paginaActual = libroCompleto.length-2;
+
+    }
+
+    else{
+
+        paginaActual = libroCompleto.length-1;
+
+    }
+
+    mostrarLibro();
+
+}

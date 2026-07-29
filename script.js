@@ -87,17 +87,18 @@ Siempre me gustaste. No sé cómo nunca pude darme cuenta de todo lo que sentía
                 `
             },
 
-          {
-    subtitulo: "Lo que más recuerdo",
+            {
+                subtitulo: "Lo que más recuerdo",
 
-    texto: `
+                texto: `
 Siempre recordaré a Mimi y al gatito viejito que te dije que podríamos adoptar juntos. Sí, ese que solamente estaba ahí, tranquilo.
 
 También recuerdo mucho a Mimi por lo hiperactiva que era y porque terminó arañándonos. Aun así, fue muy lindo pasar tanto tiempo contigo.
 
 Ahora ya no quiero separarme de ti, así como Mimi no quería separarse de sus premios.
-      `
-        }  
+                `
+            }
+
         ]
     },
 
@@ -107,9 +108,9 @@ Ahora ya no quiero separarme de ti, así como Mimi no quería separarse de sus p
         paginas: [
 
             {
-    subtitulo: "Para ti",
+                subtitulo: "Para ti",
 
-    texto: `
+                texto: `
 Sé que no soy la persona más creativa y que, como siempre quiero hacer las cosas bien, muchas veces termino equivocándome. Sin embargo, tú siempre estás ahí para animarme.
 
 Pensé en hacer este libro porque siempre decimos que queremos leer, aunque al final casi nunca lo hagamos. Sé que puede parecer algo sencillo, pero en serio lo estoy haciendo con todo el amor que siento por ti.
@@ -121,25 +122,22 @@ EN SERIO TE AMO Y SIEMPRE VOY A ESTAR PARA TI.
 Sé que a veces es difícil aprender a amarnos a nosotros mismos, y espero poder mejorar también en eso. Pero recuerda que, mientras yo exista, siempre habrá alguien que te ame.
 
 No importa lo que suceda, siempre te amaré.
-    `
-}
-
-        ]
-    }
-
-];
-    {
-        titulo: "Carta",
-
-        paginas: [
+                `
+            },
 
             {
-                subtitulo: "Para ti",
+                subtitulo: "La paz que encuentro en ti",
 
                 texto: `
-Aquí escribirás toda la carta.
+En un mundo tan complicado, y más aún en un país como el nuestro, encontré en ti esperanza y nuevas razones para seguir avanzando.
 
-Puedes agregar tantas páginas como quieras.
+Sé que algo así es muy difícil de encontrar. A pesar de todo el caos que vivimos actualmente, contigo puedo sentir paz.
+
+Ahora, con todos los cargos y responsabilidades que tenemos, también me ayudas a tranquilizarme. Sé que me estreso con mucha facilidad y que se me nota bastante, pero agradezco que siempre intentes calmarme.
+
+Eres mi pequeña cosita antiestrés. Gracias por darme paz, tranquilidad y seguridad en un mundo como este.
+
+TE AMO.
                 `
             }
 
@@ -147,7 +145,6 @@ Puedes agregar tantas páginas como quieras.
     }
 
 ];
-
 
 /*======================================================
                 VARIABLES PRINCIPALES

@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@400;500;600&display=swap');
 
-/* =====================================
-            CONFIGURACIÓN
-===================================== */
+/*==========================
+        RESET
+==========================*/
 
 *{
     margin:0;
@@ -12,10 +12,8 @@
 
 html,
 body{
-
     width:100%;
     height:100%;
-
 }
 
 body{
@@ -23,23 +21,22 @@ body{
     overflow:hidden;
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
-    font-family:"Cormorant Garamond",serif;
-
     background:
     radial-gradient(circle,
-    #4b3020 0%,
-    #28170f 70%,
-    #120b08 100%);
+    #503322 0%,
+    #2b1a12 65%,
+    #140c08 100%);
+
+    font-family:"Cormorant Garamond",serif;
 
 }
 
-/* =====================================
-            ESCENA
-===================================== */
+/*==========================
+        ESCENA
+==========================*/
 
 #escena{
 
@@ -47,69 +44,58 @@ body{
     height:100vh;
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
 }
 
-/* =====================================
-            MESA
-===================================== */
-
 #mesa{
 
-    width:1200px;
-    height:720px;
+    width:1400px;
+    height:820px;
 
     display:flex;
-
     justify-content:center;
     align-items:center;
+
+    border-radius:25px;
 
     background:
     linear-gradient(
     90deg,
-    #5d3b25,
-    #74492d,
-    #5d3b25);
-
-    border-radius:20px;
-
-    box-shadow:
-    0 25px 70px rgba(0,0,0,.45);
+    #5d3924,
+    #76492c,
+    #5d3924);
 
 }
 
-/* =====================================
-            LIBRO
-===================================== */
+/*==========================
+        LIBRO
+==========================*/
 
 #libro{
 
-    position:relative;
-
-    width:430px;
-    height:590px;
+    width:520px;
+    height:700px;
 
     overflow:hidden;
 
-    border-radius:12px;
-
-    transition:.45s;
+    border-radius:10px;
 
     background:
     linear-gradient(
     135deg,
-    #41281a,
-    #68422b,
-    #41281a);
+    #42291b,
+    #69422c,
+    #42291b);
+
+    transition:.45s;
 
 }
 
-/* =====================================
-            PORTADA
-===================================== */
+/*==========================
+        PORTADA
+==========================*/
 
 #portada{
 
@@ -117,17 +103,16 @@ body{
     height:100%;
 
     display:flex;
-
     flex-direction:column;
 
     justify-content:center;
     align-items:center;
 
+    color:#f4e5c3;
+
     text-align:center;
 
-    color:#f3e7ca;
-
-    padding:45px;
+    padding:60px;
 
     cursor:pointer;
 
@@ -137,11 +122,9 @@ body{
 
     font-family:"Cinzel",serif;
 
-    font-size:48px;
+    font-size:52px;
 
-    color:#e9cf91;
-
-    letter-spacing:3px;
+    color:#ebd49b;
 
 }
 
@@ -151,19 +134,17 @@ body{
 
     letter-spacing:5px;
 
-    color:#cfb27a;
+    color:#d9bc86;
 
 }
 
 #portada p{
 
-    margin-top:100px;
+    margin-top:90px;
 
-    font-size:27px;
+    font-size:28px;
 
     line-height:42px;
-
-    font-style:italic;
 
 }
 
@@ -173,13 +154,11 @@ body{
 
     opacity:.8;
 
-    font-size:18px;
-
 }
 
-/* =====================================
-            INTERIOR
-===================================== */
+/*==========================
+        INTERIOR
+==========================*/
 
 .oculto{
 
@@ -196,199 +175,119 @@ body{
 
 }
 
-/* =====================================
-              PÁGINAS
-===================================== */
+/*==========================
+        PAGINAS
+==========================*/
 
 .pagina{
 
-    position:relative;
-
     width:50%;
-
     height:100%;
-
-    padding:38px;
 
     background:#efe2c4;
 
-    display:flex;
+    padding:30px;
 
+    display:flex;
+    flex-direction:column;
+
+}
+
+.pagina:first-child{
+
+    border-right:2px solid rgba(0,0,0,.15);
+
+}
+
+/*==========================
+    CONTENIDO PAGINA
+==========================*/
+
+.contenidoPagina{
+
+    flex:1;
+
+    display:flex;
     flex-direction:column;
 
     overflow:hidden;
 
 }
 
-.izquierda{
+/*==========================
+        TITULO
+==========================*/
 
-    border-right:2px solid rgba(0,0,0,.12);
-
-}
-
-.pagina h2{
+.tituloPagina{
 
     font-family:"Cinzel",serif;
 
-    color:#4c2e19;
-
-    font-size:28px;
-
-    margin-bottom:22px;
-
-    flex-shrink:0;
-
-}
-
-/* =====================================
-            CONTENIDO
-===================================== */
-
-.contenido{
-
-    flex:1;
-
-    font-size:22px;
-
-    line-height:1.8;
-
-    color:#352117;
-
-    white-space:pre-wrap;
-
-    word-break:break-word;
-
-    overflow:hidden;
-
-}
-
-/* =====================================
-        NÚMERO DE PÁGINA
-===================================== */
-
-.numeroPagina{
-
-    position:absolute;
-
-    bottom:18px;
-
-    left:0;
-
-    width:100%;
+    font-size:24px;
 
     text-align:center;
 
-    font-size:18px;
+    color:#4b2e1d;
 
-    color:#7d6246;
+    margin-bottom:20px;
 
-    font-family:"Cinzel",serif;
-
-}
-
-/* =====================================
-        PÁGINA DE MEDICIÓN
-===================================== */
-
-#medidor{
-
-    position:absolute;
-
-    left:-99999px;
-
-    top:-99999px;
-
-    width:50%;
-
-    height:590px;
-
-    padding:38px;
-
-    visibility:hidden;
-
-    display:flex;
-
-    flex-direction:column;
-
-    background:#efe2c4;
+    line-height:1.25;
 
 }
 
-#medidor h2{
+/*==========================
+        TEXTO
+==========================*/
 
-    font-family:"Cinzel",serif;
-
-    font-size:28px;
-
-    margin-bottom:22px;
-
-}
-
-#textoMedidor{
+.textoPagina{
 
     flex:1;
 
-    font-size:22px;
+    overflow-y:auto;
 
-    line-height:1.8;
+    padding-right:8px;
 
-    white-space:pre-wrap;
+    text-align:justify;
 
-    word-break:break-word;
+    font-size:19px;
 
-    overflow:hidden;
+    line-height:1.75;
 
-}
-
-/* =====================================
-            RESPONSIVE
-===================================== */
-
-@media(max-width:900px){
-
-#mesa{
-
-    width:100%;
-    height:100%;
-
-    border-radius:0;
+    color:#302018;
 
 }
 
-#libro{
+/*==========================
+    BARRA SCROLL
+==========================*/
 
-    width:100% !important;
+.textoPagina::-webkit-scrollbar{
 
-    height:100%;
-
-    border-radius:0;
-
-}
-
-.pagina{
-
-    padding:22px;
+    width:5px;
 
 }
 
-.pagina h2{
+.textoPagina::-webkit-scrollbar-thumb{
 
-    font-size:20px;
+    background:#a98b65;
 
-}
-
-.contenido{
-
-    font-size:17px;
-
-    line-height:1.6;
+    border-radius:20px;
 
 }
+
+/*==========================
+    NUMERO PAGINA
+==========================*/
 
 .numeroPagina{
 
-    font-size:14px;
+    margin-top:20px;
 
-}
+    text-align:center;
+
+    font-size:17px;
+
+    color:#6a4a34;
+
+    font-style:italic;
 
 }

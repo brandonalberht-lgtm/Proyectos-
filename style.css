@@ -1,8 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+@import url(
+    'https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@400;500;600&display=swap'
+);
 
-/*==========================
-        RESET
-==========================*/
+
+/*======================================================
+                        RESET
+======================================================*/
 
 *{
     margin:0;
@@ -25,23 +28,27 @@ body{
     align-items:center;
 
     background:
-    radial-gradient(circle,
-    #503322 0%,
-    #2b1a12 65%,
-    #140c08 100%);
+        radial-gradient(
+            circle,
+            #503322 0%,
+            #2b1a12 65%,
+            #140c08 100%
+        );
 
     font-family:"Cormorant Garamond",serif;
 
 }
 
-/*==========================
-        ESCENA
-==========================*/
+
+/*======================================================
+                        ESCENA
+======================================================*/
 
 #escena{
 
     width:100vw;
     height:100vh;
+    height:100dvh;
 
     display:flex;
     justify-content:center;
@@ -49,10 +56,15 @@ body{
 
 }
 
+
+/*======================================================
+                         MESA
+======================================================*/
+
 #mesa{
 
-    width:1400px;
-    height:820px;
+    width:min(1400px,100vw);
+    height:min(820px,100vh);
 
     display:flex;
     justify-content:center;
@@ -61,41 +73,58 @@ body{
     border-radius:25px;
 
     background:
-    linear-gradient(
-    90deg,
-    #5d3924,
-    #76492c,
-    #5d3924);
+        linear-gradient(
+            90deg,
+            #5d3924,
+            #76492c,
+            #5d3924
+        );
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.45);
 
 }
 
-/*==========================
-        LIBRO
-==========================*/
+
+/*======================================================
+                         LIBRO
+======================================================*/
 
 #libro{
 
+    position:relative;
+
     width:520px;
     height:700px;
+
+    max-width:calc(100vw - 30px);
+    max-height:calc(100vh - 30px);
 
     overflow:hidden;
 
     border-radius:10px;
 
     background:
-    linear-gradient(
-    135deg,
-    #42291b,
-    #69422c,
-    #42291b);
+        linear-gradient(
+            135deg,
+            #42291b,
+            #69422c,
+            #42291b
+        );
 
-    transition:.45s;
+    box-shadow:
+        0 22px 45px rgba(0,0,0,.45);
+
+    transition:
+        width .45s ease,
+        height .45s ease;
 
 }
 
-/*==========================
-        PORTADA
-==========================*/
+
+/*======================================================
+                        PORTADA
+======================================================*/
 
 #portada{
 
@@ -108,13 +137,15 @@ body{
     justify-content:center;
     align-items:center;
 
+    padding:60px;
+
     color:#f4e5c3;
 
     text-align:center;
 
-    padding:60px;
-
     cursor:pointer;
+
+    user-select:none;
 
 }
 
@@ -123,6 +154,7 @@ body{
     font-family:"Cinzel",serif;
 
     font-size:52px;
+    line-height:1.2;
 
     color:#ebd49b;
 
@@ -143,7 +175,6 @@ body{
     margin-top:90px;
 
     font-size:28px;
-
     line-height:42px;
 
 }
@@ -152,15 +183,22 @@ body{
 
     margin-top:90px;
 
+    font-size:18px;
+
     opacity:.8;
 
 }
 
-/*==========================
-        INTERIOR
-==========================*/
 
-.oculto{
+/*======================================================
+                     INTERIOR
+======================================================*/
+
+/*
+Esta regla debe tener mayor prioridad que #interior.
+*/
+
+#interior.oculto{
 
     display:none;
 
@@ -175,98 +213,149 @@ body{
 
 }
 
-/*==========================
-        PAGINAS
-==========================*/
+
+/*======================================================
+                       PÁGINAS
+======================================================*/
 
 .pagina{
 
+    position:relative;
+
     width:50%;
+    min-width:0;
     height:100%;
 
-    background:#efe2c4;
-
-    padding:30px;
-
-    display:flex;
-    flex-direction:column;
-
-}
-
-.pagina:first-child{
-
-    border-right:2px solid rgba(0,0,0,.15);
-
-}
-
-/*==========================
-    CONTENIDO PAGINA
-==========================*/
-
-.contenidoPagina{
-
-    flex:1;
+    padding:
+        30px
+        30px
+        55px;
 
     display:flex;
     flex-direction:column;
 
     overflow:hidden;
 
+    background:#efe2c4;
+
 }
 
-/*==========================
-        TITULO
-==========================*/
+.pagina.izquierda{
 
-.tituloPagina{
+    border-right:
+        2px solid rgba(0,0,0,.15);
+
+    box-shadow:
+        inset -12px 0 20px rgba(80,50,30,.06);
+
+}
+
+.pagina.derecha{
+
+    box-shadow:
+        inset 12px 0 20px rgba(80,50,30,.06);
+
+}
+
+
+/*======================================================
+                 TÍTULOS DE PÁGINA
+======================================================*/
+
+.pagina h2{
+
+    flex-shrink:0;
+
+    margin-bottom:20px;
 
     font-family:"Cinzel",serif;
-
-    font-size:24px;
 
     text-align:center;
 
     color:#4b2e1d;
 
-    margin-bottom:20px;
+    font-weight:500;
 
     line-height:1.25;
 
 }
 
-/*==========================
-        TEXTO
-==========================*/
+.capituloTitulo{
 
-.textoPagina{
+    margin-bottom:7px;
+
+    font-size:13px;
+    letter-spacing:2px;
+
+    color:#8a684c;
+
+}
+
+.tituloPrincipal{
+
+    font-size:25px;
+
+    color:#4b2e1d;
+
+}
+
+.subtituloPagina{
+
+    margin-top:8px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:20px;
+    font-weight:600;
+
+    color:#6b4933;
+
+}
+
+
+/*======================================================
+                   TEXTO DE PÁGINA
+======================================================*/
+
+.contenido{
 
     flex:1;
+    min-height:0;
 
     overflow-y:auto;
+    overflow-x:hidden;
 
     padding-right:8px;
 
-    text-align:justify;
-
     font-size:19px;
-
     line-height:1.75;
 
     color:#302018;
 
+    text-align:justify;
+
+    overflow-wrap:anywhere;
+
 }
 
-/*==========================
-    BARRA SCROLL
-==========================*/
 
-.textoPagina::-webkit-scrollbar{
+/*======================================================
+                     BARRA SCROLL
+======================================================*/
+
+.contenido::-webkit-scrollbar{
 
     width:5px;
 
 }
 
-.textoPagina::-webkit-scrollbar-thumb{
+.contenido::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+.contenido::-webkit-scrollbar-thumb{
 
     background:#a98b65;
 
@@ -274,20 +363,258 @@ body{
 
 }
 
-/*==========================
-    NUMERO PAGINA
-==========================*/
+
+/*======================================================
+                   NÚMERO DE PÁGINA
+======================================================*/
 
 .numeroPagina{
 
-    margin-top:20px;
+    position:absolute;
+
+    left:0;
+    bottom:18px;
+
+    width:100%;
 
     text-align:center;
 
+    font-family:"Cormorant Garamond",serif;
+
     font-size:17px;
+    font-style:italic;
 
     color:#6a4a34;
 
-    font-style:italic;
+}
+
+
+/*======================================================
+                PÁGINA PARA MEDICIÓN
+======================================================*/
+
+#medidor{
+
+    position:absolute;
+
+    top:0;
+    left:-99999px;
+
+    width:50%;
+    height:100%;
+
+    padding:
+        30px
+        30px
+        55px;
+
+    display:flex;
+    flex-direction:column;
+
+    visibility:hidden;
+    pointer-events:none;
+
+    background:#efe2c4;
+
+}
+
+#medidor h2{
+
+    flex-shrink:0;
+
+    margin-bottom:20px;
+
+    font-family:"Cinzel",serif;
+
+    font-size:25px;
+    line-height:1.25;
+
+}
+
+#textoMedidor{
+
+    flex:1;
+    min-height:0;
+
+    font-size:19px;
+    line-height:1.75;
+
+    overflow:hidden;
+
+}
+
+
+/*======================================================
+                    TABLET Y CELULAR
+======================================================*/
+
+@media(max-width:900px){
+
+    body{
+
+        align-items:stretch;
+
+    }
+
+    #escena{
+
+        width:100%;
+        height:100dvh;
+
+    }
+
+    #mesa{
+
+        width:100%;
+        height:100%;
+
+        border-radius:0;
+
+    }
+
+    #libro{
+
+        width:100% !important;
+        height:100%;
+
+        max-width:none;
+        max-height:none;
+
+        border-radius:0;
+
+    }
+
+    #portada{
+
+        padding:35px 25px;
+
+    }
+
+    #portada h1{
+
+        font-size:clamp(
+            36px,
+            11vw,
+            52px
+        );
+
+    }
+
+    #portada h3{
+
+        margin-top:22px;
+
+        font-size:18px;
+
+    }
+
+    #portada p{
+
+        margin-top:70px;
+
+        font-size:24px;
+        line-height:1.5;
+
+    }
+
+    #abrirTexto{
+
+        margin-top:70px;
+
+        font-size:17px;
+
+    }
+
+    .pagina{
+
+        padding:
+            20px
+            14px
+            48px;
+
+    }
+
+    .pagina h2{
+
+        margin-bottom:14px;
+
+    }
+
+    .capituloTitulo{
+
+        font-size:10px;
+        letter-spacing:1px;
+
+    }
+
+    .tituloPrincipal{
+
+        font-size:18px;
+
+    }
+
+    .subtituloPagina{
+
+        margin-top:5px;
+
+        font-size:15px;
+
+    }
+
+    .contenido{
+
+        padding-right:4px;
+
+        font-size:15px;
+        line-height:1.55;
+
+        text-align:left;
+
+    }
+
+    .numeroPagina{
+
+        bottom:12px;
+
+        font-size:13px;
+
+    }
+
+}
+
+
+/*======================================================
+                  CELULARES PEQUEÑOS
+======================================================*/
+
+@media(max-width:500px){
+
+    .pagina{
+
+        padding:
+            16px
+            10px
+            43px;
+
+    }
+
+    .tituloPrincipal{
+
+        font-size:16px;
+
+    }
+
+    .subtituloPagina{
+
+        font-size:13px;
+
+    }
+
+    .contenido{
+
+        font-size:14px;
+        line-height:1.5;
+
+    }
 
 }
